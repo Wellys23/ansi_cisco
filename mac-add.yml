@@ -1,0 +1,12 @@
+---
+- hosts: switches
+  tasks:
+
+  - name: Run show mac-address on remote devices
+    cisco.ios.ios_command:
+      commands:
+        - show mac-address-table
+
+    register: mac_output
+  - debug: var=mac_output.stdout_lines
+

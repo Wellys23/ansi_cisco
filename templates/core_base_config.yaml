@@ -1,0 +1,11 @@
+- hosts: switches
+  gather_facts: no
+  connection: ansible.netcommon.network_cli
+  roles:
+    - ansible-pyats 
+
+  tasks:
+    - name: Prerun Config Collection
+      cisco.ios.ios_command: 
+        commands: show run
+      register: prior_config

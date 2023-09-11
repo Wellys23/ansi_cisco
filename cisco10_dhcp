@@ -1,0 +1,6 @@
+ip dhcp pool 10  
+network 177.1.1.0 /24  
+dns-server 8.8.8.8  
+domain-name fab.co.nz 
+default-router 177.1.1.1
+do wr

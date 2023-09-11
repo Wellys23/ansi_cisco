@@ -1,0 +1,16 @@
+---
+- hosts: routers
+  tasks:
+    - name: Get IOS Facts
+      cisco.ios.ios_facts:
+        gather_subset: min
+        gather_network_resources: interfaces
+
+    - name: Display Device Info
+      debug:
+        msg:
+          - "Hostname: {{ ansible_net_hostname }}"
+          - "Serial Number: {{ ansible_net_serialnum }}"
+          - "IOS-XE Version: {{ ansible_net_version }}"
+          - "Model: {{ ansible_net_model }}"
+          - "Interfaces {{ ansible_network_resources['interfaces'] }}"

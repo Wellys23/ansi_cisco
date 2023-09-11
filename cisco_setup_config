@@ -1,0 +1,29 @@
+conf t
+hostname SW4
+enable secret cisco
+username local-net  privilege 15 secret cisco
+
+ip domain-name fab.co.nz
+
+crypto key generate rsa 
+1024
+
+ip ssh version 2
+
+line vty 0 14
+transport input ssh
+no password
+login local
+history size 100
+exec-timeout 0 0
+logging synchronous
+
+line con 0
+logging synchronous
+no password
+login local
+history size 100
+exec-timeout 0 0
+
+end 
+ wr

@@ -1,0 +1,21 @@
+---
+- hosts: routers
+  tasks:
+  - name: Run show version on remote devices
+    cisco.ios.ios_command:
+      commands: 
+        - show ip int br
+
+    register: my_output
+  - debug: var=my_output.stdout_lines
+
+- hosts: switches
+  tasks:
+
+  - name: Run show mac-address on remote devices
+    cisco.ios.ios_command:
+      commands:
+        - show mac-address-table dynamic
+
+    register: mac_output
+  - debug: var=mac_output.stdout_lines

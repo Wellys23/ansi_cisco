@@ -1,0 +1,14 @@
+en 
+conf t
+vpdn enable
+
+spanning-tree mode rapid-pvst
+
+ntp server 87.81.181.2
+ntp update-calendar
+
+int vlan 100
+int vlan 101
+int vlan 102
+end
+wr

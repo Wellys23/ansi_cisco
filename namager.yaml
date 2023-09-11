@@ -1,0 +1,12 @@
+---
+- hosts: switches
+  connection: ansible.netcommon.network_cli
+  gather_facts: no 
+  tasks:
+    - name: GEt IOS Facts 
+      cisco.ios.ios_facts:
+        gather_subset: min
+        gather_network_resources: interfaces
+    - name:
+      debug:
+        msg: "hello" 
