@@ -3,8 +3,6 @@ from getpass import getpass
 username = input("Enter your username: ")
 password = getpass()
 
-with open("cisco10_dhcp") as f:
-    commnad_list = f.read().splitlines()
 with open("ip_nodes") as f:
     ip_list = f.read().splitlines()
     
@@ -21,5 +19,5 @@ for devices in ip_list:
     }
     
     net_connect = ConnectHandler(**ios_nodes)
-    output = net_connect.send_config_set(commnad_list)
+    output = net_connect.s
     print(output)
